@@ -30,13 +30,7 @@ Ship::~Ship()
 
 void Ship::Tick()
 {
-    /*for (auto element : missileTest)
-    {
-        if (element->getPosition().y <= 0)
-        {
-            delete element;
-        }
-    }*/
+    
 }
 
 void Ship::OnPressKey(sf::Event event) //bool        juste la pression
@@ -84,4 +78,26 @@ void Ship::Score()
     txtScore.setPosition(10.f,10.f);
     txtScore.setFillColor(sf::Color::Black);
     txtScore.setCharacterSize(26);
+}
+
+void Ship::CheckColisionWindow()
+{
+    if (getPosition().x < 0.f)
+    {
+        setPosition(0.f,getPosition().y);
+    }
+    if (getPosition().y < 0.f)
+    {
+        setPosition(getPosition().x,0.f);
+    }
+    
+    if (getPosition().x + sprite.getGlobalBounds().width > 640.f)
+    {
+        setPosition(640 - sprite.getGlobalBounds().width, getPosition().y);
+    }
+    if (getPosition().y + sprite.getGlobalBounds().width > 640.f)
+    {
+        setPosition(getPosition().x, 640 - sprite.getGlobalBounds().width);
+    }
+    
 }

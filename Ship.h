@@ -17,9 +17,14 @@ public:
     
     std::vector<Missile*> missileTest;
     sf::RenderStates renderShip;
+
+    
+    
     void Fire();
     void Tick() override;
     void OnPressKey(sf::Event event);
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     void Score();
+
+    void CheckColisionWindow();
 };

@@ -40,7 +40,8 @@ int main()
         window.draw(map.ship,map.ship.renderShip);
         window.draw(map.ship.txtScore);
         window.draw(map.ennemis,map.ennemis.renderEnnemis);
-        
+
+        map.ship.CheckColisionWindow();
         //map.ship->Tick();
         for (auto element : map.ship.missileTest)
         {
