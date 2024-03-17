@@ -12,7 +12,7 @@ Ennemis::Ennemis(float x, float y, float initialvitesse)
         std::cout << "err" << std::endl;
     }
     sprite.setTexture(textureEnnemis);
-    sprite.rotate(90.f),
+    sprite.rotate(180.f),
     sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
 }
 

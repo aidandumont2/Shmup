@@ -7,7 +7,7 @@
 int main()
 {
 
-    sf::RenderWindow window(sf::VideoMode(640, 640), "My window");
+    sf::RenderWindow window(sf::VideoMode(640, 640), "Shmup");
     sf::Clock clock;
     sf::Font font;
     Map map;
@@ -38,6 +38,7 @@ int main()
         map.Scroll();
         
         window.draw(map.ship,map.ship.renderShip);
+        window.draw(map.ship.txtScore);
         window.draw(map.ennemis,map.ennemis.renderEnnemis);
         
         //map.ship->Tick();

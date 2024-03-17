@@ -7,6 +7,8 @@ Ship::Ship(float x, float y, float InitialVitesse)
 {
     setPosition(x,y);
     vitesse = InitialVitesse;
+
+    Score();
     
     if (!textureShip.loadFromFile("Texture/ships.png"))
     {
@@ -69,4 +71,17 @@ void Ship::draw(sf::RenderTarget& target, sf::RenderStates states) const
     states.texture = &textureShip;
     states.transform = getTransform();
     target.draw(sprite, states);
+}
+void Ship::Score()
+{
+    if (!font.loadFromFile("Texture/Cybergame.ttf"))
+    {
+        std::cout << "err" << std::endl;
+    }
+    score = 0;
+    txtScore.setFont(font);
+    txtScore.setString("Score : " + std::to_string(score));
+    txtScore.setPosition(10.f,10.f);
+    txtScore.setFillColor(sf::Color::Black);
+    txtScore.setCharacterSize(26);
 }
