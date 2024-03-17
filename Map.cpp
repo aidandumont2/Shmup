@@ -104,7 +104,7 @@ void Map::CheckCollision()
     
     for (auto missile : ship.missileTest)
     {
-        if (missile->getPosition().x <= ennemis.getPosition().x + 16 || missile->getPosition().x <= ennemis.getPosition().x - 16)
+        if (missile->getPosition().x <= ennemis.getPosition().x + 8 || missile->getPosition().x <= ennemis.getPosition().x - 8)
         {
             if (missile->getPosition().y <= ennemis.getPosition().y)
             {
