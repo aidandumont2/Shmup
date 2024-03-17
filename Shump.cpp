@@ -38,6 +38,7 @@ int main()
         map.Scroll();
         
         window.draw(map.ship,map.ship.renderShip);
+        window.draw(map.ennemis,map.ennemis.renderEnnemis);
         
         //map.ship->Tick();
         for (auto element : map.ship.missileTest)

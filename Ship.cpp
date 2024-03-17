@@ -24,10 +24,7 @@ Ship::~Ship()
     }
 }
 
-void Ship::Deplacement()
-{
-    
-}
+
 
 void Ship::Tick()
 {

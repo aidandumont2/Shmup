@@ -1,4 +1,5 @@
 #pragma once
+#include "Ennemis.h"
 #include "Ship.h"
 
 class Map : public sf::Drawable, public sf::Transformable
@@ -6,6 +7,7 @@ class Map : public sf::Drawable, public sf::Transformable
 public:
     sf::View view;
     Ship ship;
+    Ennemis ennemis;
     sf::Texture textureMap;
     
     sf::Sprite spriteHerbe;

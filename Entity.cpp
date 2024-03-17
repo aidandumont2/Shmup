@@ -4,10 +4,7 @@ Entity::Entity()
 {
 }
 
-void Entity::Deplacement()
-{
-    
-}
+
 
 void Entity::Tick()
 {

@@ -2,10 +2,8 @@
 
 #include <iostream>
 
-Map::Map() : ship(310.f, 500.f, 10.f)
+Map::Map() : ship(310.f, 500.f, 10.f), ennemis(100.f,100.f,2.f)
 {
-    sf::IntRect herbe(32, 160, 16, 16);
-    sf::IntRect roche(128, 64, 16, 16);
     if (!textureMap.loadFromFile("Texture/tiles_packed.png"))
     {
         std::cout << "err" << std::endl;
@@ -18,11 +16,11 @@ Map::Map() : ship(310.f, 500.f, 10.f)
         int width = -1;
         for (int i = 0; i < 21; ++i)
         {
-            sf::Sprite* test = new sf::Sprite();
-            test->setTexture(textureMap);
-            test->setTextureRect(RandomTexture(rand() % 2));
-            test->setPosition(16 * width, 16*l);
-            ligne.push_back(test);
+            sf::Sprite* spriteCase = new sf::Sprite();
+            spriteCase->setTexture(textureMap);
+            spriteCase->setTextureRect(RandomTexture(rand() % 2));
+            spriteCase->setPosition(16 * width, 16*l);
+            ligne.push_back(spriteCase);
             width += 1;
         }
         tilemap.push_back(ligne);
@@ -58,10 +56,6 @@ void Map::Scroll()
     }
 }
 
-
-void Map::generation_map()
-{
-}
 
 void Map::Tick()
 {

@@ -14,6 +14,5 @@ public:
     
     Missile(float x, float y, float vitesse);
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-    void Deplacement() override;
     void Tick() override;
 };
