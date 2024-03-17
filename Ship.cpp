@@ -7,8 +7,8 @@ Ship::Ship(float x, float y, float InitialVitesse)
 {
     setPosition(x,y);
     vitesse = InitialVitesse;
-
-    Score();
+    lifePoint = 3;
+    SetUI();
     
     if (!textureShip.loadFromFile("Texture/ships.png"))
     {
@@ -16,6 +16,7 @@ Ship::Ship(float x, float y, float InitialVitesse)
     }
     sprite.setTexture(textureShip);
     sprite.setTextureRect(sf::IntRect(32, 0, 32, 32));
+    
 }
 
 Ship::~Ship()
@@ -66,18 +67,24 @@ void Ship::draw(sf::RenderTarget& target, sf::RenderStates states) const
     states.transform = getTransform();
     target.draw(sprite, states);
 }
-void Ship::Score()
+void Ship::SetUI()
 {
     if (!font.loadFromFile("Texture/Cybergame.ttf"))
     {
         std::cout << "err" << std::endl;
     }
     score = 0;
+    
     txtScore.setFont(font);
     txtScore.setString("Score : " + std::to_string(score));
     txtScore.setPosition(10.f,10.f);
     txtScore.setFillColor(sf::Color::Black);
     txtScore.setCharacterSize(26);
+    txtLife.setFont(font);
+    txtLife.setString("Life : " + std::to_string(lifePoint));
+    txtLife.setPosition(500.f,10.f);
+    txtLife.setFillColor(sf::Color::Black);
+    txtLife.setCharacterSize(26);
 }
 
 void Ship::CheckColisionWindow()

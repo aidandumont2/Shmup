@@ -9,9 +9,10 @@ public:
     Ship ship;
     Ennemis ennemis;
     sf::Texture textureMap;
+
+    sf::FloatRect playerBounds;
+    sf::FloatRect ennemisBounds;
     
-    sf::Sprite spriteHerbe;
-    sf::Sprite spriteRoche;
     sf::Sprite spriteMap;
     
     std::vector<std::vector<sf::Sprite*>> tilemap;
@@ -25,4 +26,6 @@ public:
     void Tick();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     sf::IntRect RandomTexture(int);
+
+    void CheckCollision();
 };

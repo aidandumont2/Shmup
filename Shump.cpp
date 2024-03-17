@@ -36,9 +36,14 @@ int main()
         
         window.draw(map);
         map.Scroll();
+        map.CheckCollision();
+        
+        
+        
         
         window.draw(map.ship,map.ship.renderShip);
         window.draw(map.ship.txtScore);
+        window.draw(map.ship.txtLife);
         window.draw(map.ennemis,map.ennemis.renderEnnemis);
 
         map.ship.CheckColisionWindow();

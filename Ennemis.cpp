@@ -14,6 +14,7 @@ Ennemis::Ennemis(float x, float y, float initialvitesse)
     sprite.setTexture(textureEnnemis);
     sprite.rotate(180.f),
     sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
+    
 }
 
 
@@ -27,4 +28,9 @@ void Ennemis::draw(sf::RenderTarget& target, sf::RenderStates states) const
     states.texture = &textureEnnemis;
     states.transform = getTransform();
     target.draw(sprite, states);
+}
+
+Ennemis::~Ennemis()
+{
+    
 }

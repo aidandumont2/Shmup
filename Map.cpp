@@ -2,8 +2,10 @@
 
 #include <iostream>
 
-Map::Map() : ship(310.f, 500.f, 10.f), ennemis(100.f,100.f,2.f)
+Map::Map() : ship(310.f, 500.f, 10.f), ennemis(200.f,100.f,2.f)
 {
+    
+    
     if (!textureMap.loadFromFile("Texture/tiles_packed.png"))
     {
         std::cout << "err" << std::endl;
@@ -25,6 +27,7 @@ Map::Map() : ship(310.f, 500.f, 10.f), ennemis(100.f,100.f,2.f)
         }
         tilemap.push_back(ligne);
     }
+    
 }
 
 sf::IntRect Map::RandomTexture(int index)
@@ -76,3 +79,42 @@ void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const
         
     }
 }
+
+void Map::CheckCollision()
+{
+    /*playerBounds = ship.sprite.getGlobalBounds();
+    ennemisBounds = ennemis.sprite.getGlobalBounds();
+    //std::cout << playerBounds.getPosition().x << std::endl;
+    if (ennemisBounds.intersects(playerBounds))
+    {
+        std::cout << "collision" << std::endl;
+        ennemis.setPosition(getPosition().x + 10.f,10.f);
+        ship.score += 1;
+        ship.lifePoint -= 1;
+    }
+    for (auto missile : ship.missileTest)
+    {
+        if (ennemisBounds.intersects(missile->sprite.getGlobalBounds()))
+        {
+            std::cout << "collision" << std::endl;
+            ship.score += 1;
+            ennemis.setPosition(getPosition().x + 10.f,10.f);
+        }
+    }*/
+    
+    for (auto missile : ship.missileTest)
+    {
+        if (missile->getPosition().x <= ennemis.getPosition().x + 16 || missile->getPosition().x <= ennemis.getPosition().x - 16)
+        {
+            if (missile->getPosition().y <= ennemis.getPosition().y)
+            {
+                std::cout << "collision" << std::endl;
+                ship.score += 1;
+                ship.txtScore.setString("Score : " + std::to_string(ship.score));
+                ennemis.setPosition(ennemis.getPosition().x + 10.f,ennemis.getPosition().y);
+                ship.missileTest.clear();
+            }
+        }
+    }
+}
+
